@@ -13,10 +13,6 @@ const Checkout = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchCart();
-  }, []);
-
   const fetchCart = async () => {
     try {
       setLoading(true);
@@ -33,6 +29,11 @@ const Checkout = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchCart();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
